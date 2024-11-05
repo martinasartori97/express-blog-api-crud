@@ -25,18 +25,20 @@ const store = (req, res) => {
 
   // create the new post object
   const post = {
-    title: "",
-    slug: "",
-    content: "",
-    image: "",
-    tags: ""
+    title: req.body.title,
+    slug: req.body.slug,
+    content: req.body.content,
+    image: req.body.image,
+    tags: req.body.tags
   };
+
+  posts.push(post)
 
 
   return res.status(201).json({
     status: 201,
-    data: menu,
-    count: menu.length
+    data: posts,
+    count: posts.length
   })
 
 
