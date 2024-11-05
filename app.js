@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 
 
+
 app.get('/posts', PostsController.index);
 app.get('/posts/:id', PostsController.show);
 
