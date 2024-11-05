@@ -8,6 +8,6 @@ router.get('/:id', PostsController.show)
 router.post('/', PostsController.store)
 
 
-router.post("/",PostsControllers.store)
+router.post("/", PostsControllers.store)
 
 module.exports = router
