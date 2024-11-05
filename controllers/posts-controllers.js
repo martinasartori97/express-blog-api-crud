@@ -20,7 +20,13 @@ const show = (req, res) => {
     return res.status(200).json({ data: posts })
   }
 
+
+  const store = (req,res) =>{
+
+  }
+
   module.exports = {
     index,
-    show
+    show,
+    store
   }
