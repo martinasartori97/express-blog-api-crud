@@ -1,6 +1,7 @@
 //require ('dotenv').confing()
 
 const express = require('express')
+const PostsController = require('./controllers/posts-controllers');
 const app = express()
 
 
@@ -22,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 
-const PostsController = require('./controllers/PostsController');
+
 
 app.get('/posts', PostsController.index);
 app.get('/posts/:id', PostsController.show);

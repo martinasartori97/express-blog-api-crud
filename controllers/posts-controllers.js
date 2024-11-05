@@ -1,5 +1,5 @@
 
-const posts = require('../db/posts.js')
+const posts = require('../db.js')
 
 const index = (req, res) => {
     res.json({ data: posts, count: posts.length })
