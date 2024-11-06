@@ -1,6 +1,5 @@
 
 const posts = require('../db.js')
-const posts = require('../db.js')
 
 const fs = require('fs')
 
