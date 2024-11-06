@@ -1,5 +1,6 @@
 
 const posts = require('../db.js')
+const posts = require('../db.js')
 
 const fs = require('fs')
 
@@ -54,6 +55,15 @@ const store = (req, res) => {
     body: req.body
   })
 
+
+}
+
+
+const update = (req, res) => {
+  console.log(req.params);
+  
+
+  const posts = posts.find((posts) => posts.id === Number(req.params.id));
 
 }
 
