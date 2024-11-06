@@ -16,7 +16,7 @@ app.listen(PORT, () => {
     console.log(`server is running at http://127.0.0.1:3000`)
 });
 
-app.use("/posts", postsRoutes)
+
 
 app.get('/', (req, res) => {
     res.send('posts rest API')
