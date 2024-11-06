@@ -1,6 +1,8 @@
 
 const posts = require('../db.js')
 
+const fs = require('fs')
+
 const index = (req, res) => {
   res.json({ data: posts, count: posts.length })
 }
@@ -32,9 +34,10 @@ const store = (req, res) => {
     tags: req.body.tags
   };
 
-  posts.push(post)
+  //posts.push(post)
 
 
+  fs.writeFileSync('./db/posts.js', `module.exports = ${json.stringify(posts, null, 4)}`)
   return res.status(201).json({
     status: 201,
     data: posts,
