@@ -31,7 +31,7 @@ const store = (req, res) => {
     tags: req.body.tags
   };
 
-posts.push(post)
+  posts.push(post)
 
 
   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
@@ -46,15 +46,23 @@ posts.push(post)
 
 const update = (req, res) => {
   console.log(req.params);
-  
+
 
   const posts = posts.find((posts) => posts.id === Number(req.params.id));
 
 }
 
+
+const destroy = (req, res) => {
+
+
+}
+
+
 module.exports = {
   index,
   show,
   store,
-  update
+  update,
+  destroy
 }
