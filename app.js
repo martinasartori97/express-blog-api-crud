@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.send('posts rest API')
 });
 
-app.use('/', posts.js);
+//app.use('/', posts.js);
 
 app.use("/posts",myRoutes);
 
