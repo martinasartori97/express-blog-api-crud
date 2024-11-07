@@ -25,13 +25,16 @@ app.get('/', (req, res) => {
 
 app.use('/', posts.js);
 
+app.use("/posts",myRoutes);
 
 
 
 
-app.get('/posts', PostsController.index);
-app.get('/posts/:title', PostsController.show);
-app.post('/posts', PostsController.store);
+
+//app.get('/posts', PostsController.index);
+//app.get('/posts/:title', PostsController.show);
+//app.post('/posts', PostsController.store);
+
 
 
 
