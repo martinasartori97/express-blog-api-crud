@@ -14,7 +14,7 @@ const show = (req, res) => {
 
   const FoundPosts = posts.find((posts) => posts.id === parseInt(req.params.title))
   if (!posts) {
-    return res.status(404).json({ error: "No posts found with that id" })
+    return res.status(404).json({ error: "No posts found with that " })
   }
   return res.status(200).json({ data: posts })
 }
@@ -56,7 +56,7 @@ const update = (req, res) => {
 
 
 const destroy = (req, res) => {
-  const posts = posts.find((posts) => posts.title === parseInt(req.params.title));
+  const foundPosts = posts.find((posts) => posts.title === parseInt(req.params.title));
   if (!posts) {
     return res.status(404).JSON({ error: "No posts found with that title" })
   }
