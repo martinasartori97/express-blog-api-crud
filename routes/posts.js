@@ -1,7 +1,7 @@
 const express = require('express')
 
 const router = express.Router()
-const PostsController = require('../controllers/PostsController.js')
+const PostsController = require('../controllers/Posts-controllers.js')
 
 router.get('/', PostsController.index)
 router.get('/:title', PostsController.show)
