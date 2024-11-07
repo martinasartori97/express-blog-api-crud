@@ -61,7 +61,7 @@ const destroy = (req, res) => {
     return res.status(404).JSON({ error: "No posts found with that title" })
   }
   const newPosts = posts.filter((posts) => posts.title !== parseInt(req.params.title));
-  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newposts, null, 4)}`)
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
 
   res.status(200).json({
     status: 200,
