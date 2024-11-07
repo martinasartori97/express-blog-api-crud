@@ -31,6 +31,8 @@ const store = (req, res) => {
     tags: req.body.tags
   };
 
+
+
   posts.push(post)
 
 
@@ -44,9 +46,9 @@ const store = (req, res) => {
 }
 
 
+
 const update = (req, res) => {
   console.log(req.params);
-
 
   const posts = posts.find((posts) => posts.id === Number(req.params.id));
 
@@ -54,8 +56,18 @@ const update = (req, res) => {
 
 
 const destroy = (req, res) => {
+  const posts = posts.find((posts) => posts.title === parseInt(req.params.title));
+  if (!posts) {
+    return res.status(404).JSON({ error: "No posts found with that title" })
+  }
+  const newPosts = posts.filter((posts) => posts.title !== parseInt(req.params.title));
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newposts, null, 4)}`)
 
-
+  res.status(200).json({
+    status: 200,
+    data: newPosts,
+    counter: newPosts.length
+  })
 }
 
 
