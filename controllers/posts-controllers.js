@@ -7,9 +7,6 @@ const index = (req, res) => {
   res.json({ data: posts, count: posts.length })
 }
 
-module.exports = {
-  index
-}
 
 
 
@@ -34,26 +31,15 @@ const store = (req, res) => {
     tags: req.body.tags
   };
 
-  //posts.push(post)
+posts.push(post)
 
 
-  fs.writeFileSync('./db/posts.js', `module.exports = ${json.stringify(posts, null, 4)}`)
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
   return res.status(201).json({
     status: 201,
     data: posts,
     count: posts.length
   })
-
-
-
-
-
-  console.log(req.body);
-
-  res.json = ({
-    body: req.body
-  })
-
 
 }
 
@@ -69,5 +55,6 @@ const update = (req, res) => {
 module.exports = {
   index,
   show,
-  store
+  store,
+  update
 }
