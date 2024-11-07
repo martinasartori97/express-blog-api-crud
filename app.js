@@ -3,6 +3,7 @@
 const express = require('express')
 const PostsController = require('./controllers/posts-controllers');
 const app = express()
+const myRoutes = require('./routes/posts.js');
 
 
 
@@ -21,6 +22,8 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('posts rest API')
 });
+
+app.use('/', posts.js);
 
 
 
