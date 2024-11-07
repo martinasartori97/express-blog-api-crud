@@ -8,8 +8,8 @@ module.exports = [
             "Dolci",
             "Torte",
             "Ricette vegetariane",
-            "Ricette al forno"
-        ]
+            "Ricette al forno"]
+
     },
     {
         "title": "Cracker alla barbabietola",
@@ -19,8 +19,8 @@ module.exports = [
         "tags": [
             "Antipasti",
             "Ricette vegetariane",
-            "Ricette al forno"
-        ]
+            "Ricette al forno"]
+
     },
     {
         "title": "Pasta barbabietola e gorgonzola",
@@ -29,8 +29,8 @@ module.exports = [
         "image": "pasta_barbabietola.jpeg",
         "tags": [
             "Primi piatti",
-            "Ricette vegetariane"
-        ]
+            "Ricette vegetariane"]
+
     },
     {
         "title": "Pane fritto dolce",
@@ -41,8 +41,8 @@ module.exports = [
             "Dolci",
             "Dolci veloci",
             "Ricette veloci",
-            "Ricette vegetariane"
-        ]
+            "Ricette vegetariane"]
+
     },
     {
         "title": "Torta paesana",
@@ -54,8 +54,8 @@ module.exports = [
             "Dolci al cioccolato",
             "Torte",
             "Ricette vegetariane",
-            "Ricette al forno"
-        ]
+            "Ricette al forno"]
+
     },
     {
         "title": "Ciambellone",
@@ -66,7 +66,7 @@ module.exports = [
             "Dolci",
             "Torte",
             "Ricette vegetariane",
-            "Ricette al forno"
-        ]
+            "Ricette al forno"]
+
     }
 ]

@@ -12,7 +12,7 @@ const index = (req, res) => {
 
 const show = (req, res) => {
 
-  const posts = posts.find((posts) => posts.id === parseInt(req.params.id))
+  const FoundPosts = posts.find((posts) => posts.id === parseInt(req.params.title))
   if (!posts) {
     return res.status(404).json({ error: "No posts found with that id" })
   }
