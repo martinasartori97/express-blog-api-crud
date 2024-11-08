@@ -33,7 +33,7 @@ app.use("/posts",myRoutes);
 
 app.get('/posts', PostsController.index);
 app.get('/posts/:title', PostsController.show);
-//app.post('/posts', PostsController.store);
+app.post('/posts', PostsController.store);
 
 
 
