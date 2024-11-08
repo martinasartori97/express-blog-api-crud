@@ -37,7 +37,7 @@ const store = (req, res) => {
   posts.push(post)
 
 
-  //   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
   return res.status(201).json({
     status: 201,
     data: posts,
@@ -48,13 +48,21 @@ const store = (req, res) => {
 
 
 
-// const update = (req, res) => {
-//   console.log(req.params);
+const update = (req, res) => {
+  console.log(req.params);
 
-//   const post = posts.find((post) => post.slug === req.params.slug);
-// console.log(post);
+  const post = posts.find((post) => post.slug === req.params.slug);
+  if (!posts) {
+    return res.status(404).json({ error: "No post found with that slug" })
+  }
+  title: req.body.title,
+    slug: req.body.slug,
+      content: req.body.content,
+        image: req.body.image,
+          tags: req.body.tags
+  console.log(post);
 
-// }
+}
 
 
 // const destroy = (req, res) => {
@@ -78,6 +86,6 @@ module.exports = {
   index,
   show,
   store,
-  // update,
+  update,
   // destroy
 }
