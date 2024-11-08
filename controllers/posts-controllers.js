@@ -37,12 +37,7 @@ const store = (req, res) => {
   posts.push(post)
 
 
-  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
-  return res.status(201).json({
-    status: 201,
-    data: posts,
-    count: posts.length
-  })
+
 
 }
 
@@ -60,34 +55,43 @@ const update = (req, res) => {
   FoundPost.content = req.body.content
   FoundPost.image = req.body.image
   FoundPost.tags = req.body.tags
-  return res.status(201).json({
 
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
+  return res.status(201).json({
+    status: 201,
+    data: posts,
+    count: posts.length
   })
 
+
+
+
+
+
 }
 
 
-// const destroy = (req, res) => {
-//   const foundPosts = posts.find((posts) => posts.title === parseInt(req.params.title));
-//   if (!posts) {
-//     return res.status(404).JSON({ error: "No posts found with that title" })
-//   }
-//   const newPosts = posts.filter((posts) => posts.title !== parseInt(req.params.title));
-//   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
+const destroy = (req, res) => {
+  const foundPost = posts.find((post) => posts.title === req.params.title);
+  if (!FoundPost) {
+    return res.status(404).json({ error: "No posts found with that title" })
+  }
+  const newPosts = posts.filter((posts) => posts.title !== req.params.title0);
+  //   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
 
-//   res.status(200).json({
-//     status: 200,
-//     data: newPosts,
-//     counter: newPosts.length
-//   })
-// }
+  //   res.status(200).json({
+  //     status: 200,
+  //     data: newPosts,
+  //     counter: newPosts.length
+  //   })
+  // }
 
 
 
-module.exports = {
-  index,
-  show,
-  store,
-  update,
-  // destroy
-}
+  module.exports = {
+    index,
+    show,
+    store,
+    update,
+    destroy
+  }
