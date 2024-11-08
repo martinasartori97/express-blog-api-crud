@@ -51,18 +51,18 @@ const store = (req, res) => {
 const update = (req, res) => {
   console.log(req.params);
 
-  const post = posts.find((post) => post.slug === req.params.slug);
-  console.log('+',post);
-  
-  // if (!post) {
-  //   return res.status(404).json({ error: "No post found with that slug" })
-  // }
-  // title: req.body.title,
-  //   slug: req.body.slug,
-  //     content: req.body.content,
-  //       image: req.body.image,
-  //         tags: req.body.tags
-  // console.log(post);
+  const FoundPost = posts.find((post) => post.slug === req.params.slug);
+  if (!FoundPost) {
+    return res.status(404).json({ error: "No post found with that slug" })
+  }
+  FoundPost.title = req.body.title
+  FoundPost.slug = req.body.slug
+  FoundPost.content = req.body.content
+  FoundPost.image = req.body.image
+  FoundPost.tags = req.body.tags
+  return res.status(201).json({
+
+  })
 
 }
 
