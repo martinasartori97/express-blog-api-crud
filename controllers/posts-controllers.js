@@ -2,6 +2,7 @@
 const posts = require('../db.js')
 
 const fs = require('fs')
+const { post } = require('../routes/posts.js')
 
 const index = (req, res) => {
   res.json({ data: posts, count: posts.length })
@@ -12,7 +13,7 @@ const index = (req, res) => {
 
 const show = (req, res) => {
 
-  const FoundPosts = posts.find((posts) => posts.id === parseInt(req.params.title))
+  const FoundPosts = posts.find((posts) => posts.title === parseInt(req.params.title))
   if (!posts) {
     return res.status(404).json({ error: "No posts found with that " })
   }
@@ -50,7 +51,8 @@ const store = (req, res) => {
 const update = (req, res) => {
   console.log(req.params);
 
-  const posts = posts.find((posts) => posts.id === Number(req.params.id));
+  const post = posts.find((post) => post.slug === req.params.slug);
+console.log(post);
 
 }
 
