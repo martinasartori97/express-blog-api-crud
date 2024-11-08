@@ -11,7 +11,7 @@ const index = (req, res) => {
 
 
 const show = (req, res) => {
-console.log(req.params.slug);
+  console.log(req.params.slug);
 
   const FoundPost = posts.find((post) => post.slug === req.params.slug)
   if (!posts) {
@@ -21,30 +21,30 @@ console.log(req.params.slug);
 }
 
 
-// const store = (req, res) => {
+const store = (req, res) => {
 
-//   // create the new post object
-//   const post = {
-//     title: req.body.title,
-//     slug: req.body.slug,
-//     content: req.body.content,
-//     image: req.body.image,
-//     tags: req.body.tags
-//   };
-
-
-
-//   posts.push(post)
+  // create the new post object
+  const post = {
+    title: req.body.title,
+    slug: req.body.slug,
+    content: req.body.content,
+    image: req.body.image,
+    tags: req.body.tags
+  };
 
 
-//   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
-//   return res.status(201).json({
-//     status: 201,
-//     data: posts,
-//     count: posts.length
-//   })
 
-// }
+  posts.push(post)
+
+
+  //   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(posts, null, 4)}`)
+  return res.status(201).json({
+    status: 201,
+    data: posts,
+    count: posts.length
+  })
+
+}
 
 
 
@@ -76,8 +76,8 @@ console.log(req.params.slug);
 
 module.exports = {
   index,
-   show,
-  // store,
+  show,
+  store,
   // update,
   // destroy
 }
