@@ -14,7 +14,7 @@ const show = (req, res) => {
   console.log(req.params.slug);
 
   const FoundPost = posts.find((post) => post.slug === req.params.slug)
-  if (!posts) {
+  if (!post) {
     return res.status(404).json({ error: "No posts found with that slug " })
   }
   return res.status(200).json({ data: posts })
