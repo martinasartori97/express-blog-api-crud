@@ -1,8 +1,8 @@
 //require ('dotenv').confing()
 
 const express = require('express')
-const PostsController = require('./controllers/posts-controllers');
 const app = express()
+const PostsController = require('./controllers/posts-controllers');
 const myRoutes = require('./routes/posts.js');
 
 
@@ -31,8 +31,8 @@ app.use("/posts",myRoutes);
 
 
 
-//app.get('/posts', PostsController.index);
-//app.get('/posts/:title', PostsController.show);
+app.get('/posts', PostsController.index);
+app.get('/posts/:title', PostsController.show);
 //app.post('/posts', PostsController.store);
 
 
