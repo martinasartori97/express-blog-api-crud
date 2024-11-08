@@ -36,9 +36,6 @@ const store = (req, res) => {
 
   posts.push(post)
 
-
-
-
 }
 
 
@@ -63,11 +60,6 @@ const update = (req, res) => {
     count: posts.length
   })
 
-
-
-
-
-
 }
 
 
@@ -77,21 +69,21 @@ const destroy = (req, res) => {
     return res.status(404).json({ error: "No posts found with that title" })
   }
   const newPosts = posts.filter((posts) => posts.title !== req.params.title0);
-  //   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
+  fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
 
-  //   res.status(200).json({
-  //     status: 200,
-  //     data: newPosts,
-  //     counter: newPosts.length
-  //   })
-  // }
+  res.status(200).json({
+    status: 200,
+    data: newPosts,
+    counter: newPosts.length
+  })
+}
 
 
 
-  module.exports = {
-    index,
-    show,
-    store,
-    update,
-    destroy
-  }
+module.exports = {
+  index,
+  show,
+  store,
+  update,
+  destroy
+}
