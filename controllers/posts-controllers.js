@@ -64,11 +64,11 @@ const update = (req, res) => {
 
 
 const destroy = (req, res) => {
-  const foundPost = posts.find((post) => posts.title === req.params.title);
-  if (!FoundPost) {
-    return res.status(404).json({ error: "No posts found with that title" })
+  const foundPost = posts.find(post => post.slug === req.params.slug);
+  if (!foundPost) {
+    return res.status(404).json({ error: "No posts found with that slug" })
   }
-  const newPosts = posts.filter((posts) => posts.title !== req.params.title0);
+  const newPosts = posts.filter((posts) => posts.slug !== req.params.slug);
   fs.writeFileSync('./db.js', `module.exports = ${JSON.stringify(newPosts, null, 4)}`)
 
   res.status(200).json({
