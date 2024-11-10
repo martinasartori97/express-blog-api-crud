@@ -8,8 +8,6 @@ const index = (req, res) => {
 }
 
 
-
-
 const show = (req, res) => {
   console.log(req.params.slug);
 
@@ -91,7 +89,7 @@ const loggerMiddleware = (req, res, next) => {
     Method: ${req.method} 
     URL: ${req.url}`);
 
-  
+
   next();
 
 }

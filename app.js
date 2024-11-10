@@ -1,5 +1,12 @@
 //require ('dotenv').confing()
 
+
+app.use('/posts', (req, res, next) => {
+    throw new Error("You broke everything dude! 💥");
+});
+
+
+
 const express = require('express')
 const app = express()
 const PostsController = require('./controllers/posts-controllers');
@@ -30,6 +37,7 @@ app.get('/', (req, res) => {
 
 app.use("/posts", myRoutes);
 app.use(notFoundMiddleware);
+app.use('/posts', loggerMiddleware)
 
 
 
@@ -38,6 +46,18 @@ app.use(notFoundMiddleware);
 app.get('/posts', PostsController.index);
 app.get('/posts/:title', PostsController.show);
 app.post('/posts', PostsController.store);
+
+
+
+app.use((err, req, res, next) => {
+    console.log("Error: ", err.message);
+    console.error(err.stack);
+    res.status(500).send({
+        message: "Something went wrong",
+        error: err.message
+    })
+});
+
 
 
 
