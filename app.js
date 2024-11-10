@@ -4,6 +4,9 @@ const express = require('express')
 const app = express()
 const PostsController = require('./controllers/posts-controllers');
 const myRoutes = require('./routes/posts.js');
+const notFoundMiddleware = require('./middleware/notFoundMiddleware.js')
+const loggerMiddleware = require('./middleware/loggerMiddleware')
+
 
 
 
@@ -25,7 +28,8 @@ app.get('/', (req, res) => {
 
 //app.use('/', posts.js);
 
-app.use("/posts",myRoutes);
+app.use("/posts", myRoutes);
+app.use(notFoundMiddleware);
 
 
 
@@ -34,6 +38,8 @@ app.use("/posts",myRoutes);
 app.get('/posts', PostsController.index);
 app.get('/posts/:title', PostsController.show);
 app.post('/posts', PostsController.store);
+
+
 
 
 

@@ -79,6 +79,30 @@ const destroy = (req, res) => {
 }
 
 
+const notFoundMiddleware = (req, res, next) => {
+  res.status(404).send("Sorry can't find that!")
+}
+
+
+const loggerMiddleware = (req, res, next) => {
+  const now = new Date().toString();
+  console.error(`
+    Date: ${now} 
+    Method: ${req.method} 
+    URL: ${req.url}`);
+
+  
+  next();
+
+}
+
+
+
+module.exports = notFoundMiddleware;
+module.exports = loggerMiddleware;
+
+
+
 
 module.exports = {
   index,
