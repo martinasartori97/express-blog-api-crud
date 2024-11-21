@@ -1,5 +1,5 @@
 module.exports = [
-    {},
+
     {
         "title": "Cracker alla barbabietola",
         "slug": "cracker-alla-barbabeitola",
@@ -34,7 +34,7 @@ module.exports = [
             "Ricette al forno"
         ]
     },
-    {},
+
     {
         "title": "Ciambellone",
         "slug": "ciambellone",
